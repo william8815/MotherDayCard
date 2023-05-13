@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --main-color: #f54278;
+  --sub-color: #f78dac;
+  --dark-color: #c2345f;
+  --bg-color: #752039;
+  --font-color: #754352;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg-color);
+  display: grid;
+  place-items: center;
+}
+.container {
+  width: 90%;
+  max-width: 600px;
+  height: 30%;
+  max-height: 300px;
+  border-radius: 10px;
+  box-shadow: 5px 15px 15px -15px #000;
+  position: relative;
+}
+/* front-page */
+.front-page {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  background: var(--sub-color);
+  border: 5px solid var(--font-color);
+  border-radius: 10px;
+  position: relative;
+  display: grid;
+  grid-template-areas:
+    "happy mother"
+    "day day";
+  transform-origin: top;
+}
+.front-page.hide {
+  transform: rotateX(90deg);
+  transition: transform 1s ease-in;
+}
+
+.front-page span {
+  color: var(--font-color);
+  font-weight: 700;
+}
+.front-page .info_text {
+  width: 100%;
+  position: absolute;
+  bottom: 0.25rem;
+  left: 0;
+  text-align: center;
+  color: #888;
+  animation: textfade 1.5s ease-in-out infinite;
+}
+@keyframes textfade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.happy,
+.mother,
+.day {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  transform-origin: center;
+}
+/* front-page: happy */
+.happy {
+  grid-area: happy;
+}
+.happy span:first-child {
+  transform: rotateZ(-30deg) translate(-1rem, 0.75rem);
+}
+.happy span:nth-child(2) {
+  transform: rotateZ(-15deg) translate(-0.5rem, 0.25rem);
+}
+.happy span:nth-child(3) {
+}
+.happy span:nth-child(4) {
+  transform: rotateZ(15deg) translate(0.5rem, 0.25rem);
+}
+.happy span:last-child {
+  transform: rotateZ(30deg) translate(1rem, 0.75rem);
+}
+/* front-page: mother */
+.mother {
+  grid-area: mother;
+}
+.mother span:first-child {
+  transform: rotateZ(-30deg) translate(-0.75rem, 1.25rem);
+}
+.mother span:nth-child(2) {
+  transform: rotateZ(-20deg) translate(-0.5rem, 0.65rem);
+}
+.mother span:nth-child(3) {
+  transform: rotateZ(-10deg) translate(-0.25rem, 0.35rem);
+}
+.mother span:nth-child(4) {
+  transform: translate(0rem, 0.25rem);
+}
+
+.mother span:nth-child(5) {
+  transform: rotateZ(10deg) translate(0.25rem, 0.35rem);
+}
+.mother span:nth-child(6) {
+  transform: rotateZ(20deg) translate(0.5rem, 0.65rem);
+}
+.mother span:last-child {
+  transform: rotateZ(30deg) translate(0.75rem, 1.25rem);
+}
+/* front-page: day */
+.day {
+  grid-area: day;
+  font-size: 2.5rem;
+  gap: 1.5rem;
+}
+.day span:first-child {
+  transform: rotateZ(-20deg) translate(-0.5rem, 0.5rem);
+}
+.day span:nth-child(2) {
+}
+.day span:last-child {
+  transform: rotateZ(20deg) translate(0.5rem, 0.5rem);
+}
+
+/* key */
+.day .key_icon,
+.day .lock_icon,
+.day .unlock_icon {
+  color: #000;
+}
+
+@media screen and (min-width: 600px) {
+  .happy,
+  .mother,
+  .day {
+    font-size: 2rem;
+  }
+  .day {
+    font-size: 5rem;
+    gap: 2rem;
+  }
+}
+
+/* main */
+.main-page {
+  width: 100%;
+  height: 100%;
+  padding: 0.5rem;
+  background: var(--sub-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 5px solid var(--font-color);
+  border-radius: 10px;
+  z-index: -1;
+  box-shadow: 5px 15px 15px -15px #000;
+  transition: all 0.5s ease-in;
+}
+.main-page.show {
+  transform: translateY(-25%);
+  height: 60vh;
+  z-index: 1;
+}
+article {
+  opacity: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+article.show {
+  opacity: 1;
+}
+.main-title {
+  color: var(--dark-color);
+  font-size: 1rem;
+}
+.main-content {
+  flex-grow: 1;
+}
+.bless-text {
+  text-align: center;
+  font-weight: 700;
+  color: var(--dark-color);
+  font-size: 1.25rem;
+}
+.main-footer {
+  text-align: end;
+  text-decoration: underline;
+}
+
+/* set */
+.d-none {
+  display: none;
+}
+.d-block {
+  display: block;
+}
